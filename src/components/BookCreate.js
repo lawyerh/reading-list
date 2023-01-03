@@ -10,6 +10,7 @@ export default function BookCreate({ onSubmitBookTitle }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmitBookTitle(bookTitle);
+    setBookTitle("");
   };
 
   return (
@@ -26,7 +27,7 @@ export default function BookCreate({ onSubmitBookTitle }) {
           />
           <p className="add-book__arrow">&larr;</p>
         </div>
-        <button onSubmit={handleSubmit} className="button add-book__submit">
+        <button onSubmit={handleSubmit} className="button">
           Submit
         </button>
       </form>

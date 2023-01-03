@@ -87,14 +87,17 @@ h6 {
 .App {
   position: relative;
   height: 100vh;
+  padding: 1rem;
 }
 
 .add-book {
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: 2rem;
+  left: 2rem;
+  width: 30%;
   background: lightgrey;
   padding: 1.5rem 10rem;
+  z-index: 50;
 }
 
 .add-book__heading {
@@ -146,5 +149,9 @@ h6 {
   box-shadow: 0 0.2rem 1rem black;
 }
 
-.add-book__submit {
+.book-list {
+  height: 98vh;
+  background: teal;
+  width: 100%;
+  border: 5px solid black;
 }
