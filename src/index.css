@@ -115,7 +115,7 @@ h6 {
 }
 
 /* 
-  Below is an accessibility no-go.
+  Below is a bad accessibility practice.
 */
 .add-book__input:focus {
   outline: none;
@@ -154,4 +154,52 @@ h6 {
   background: teal;
   width: 100%;
   border: 5px solid black;
+  padding: 2rem;
+}
+
+.book-show {
+  display: inline-block;
+  height: 10vh;
+  width: 15%;
+  background: lightgrey;
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.book-show:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.book-show__title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.book-show__edit {
+  position: absolute;
+  right: 4rem;
+  top: 0;
+  background: transparent;
+}
+
+.book-show__delete {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  background: transparent;
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: red;
+  border: none;
+  transition: all 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  font-weight: 700;
 }

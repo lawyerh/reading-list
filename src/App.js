@@ -10,12 +10,11 @@ function App() {
   const handleCreateBook = (bookTitle) => {
     const updatedBooks = [...books, { id: 1, title: bookTitle }];
     setBooks(updatedBooks);
-    console.log(books);
   };
 
   return (
     <div className="App">
-      <BookList />
+      <BookList books={books} />
       <BookCreate onSubmitBookTitle={handleCreateBook} />
     </div>
   );
