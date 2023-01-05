@@ -1,10 +1,16 @@
 import BookShow from "./BookShow";
 
-export default function BookList({ books }) {
-  console.log(books);
+export default function BookList({ books, deleteBook, updateBook }) {
   const mapBooks = () => {
     const bookCards = books.map((book) => {
-      return <BookShow book={book.title} key={book.id} />;
+      return (
+        <BookShow
+          key={book.id}
+          book={book}
+          deleteBook={deleteBook}
+          updateBook={updateBook}
+        />
+      );
     });
     return bookCards;
   };
