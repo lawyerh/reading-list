@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function BookShow({ book, deleteBook, updateBook }) {
   const [newTitle, setNewTitle] = useState(book.title);
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(true);
 
   const handleDelete = () => {
     deleteBook(book.id);
@@ -20,6 +20,7 @@ export default function BookShow({ book, deleteBook, updateBook }) {
   const handleInputSubmit = (e) => {
     e.preventDefault();
     handleEdit();
+    changeEditMode();
   };
 
   // Not neccesary at all to use a switch here but I like them!

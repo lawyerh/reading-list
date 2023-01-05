@@ -15,5 +15,10 @@ export default function BookList({ books, deleteBook, updateBook }) {
     return bookCards;
   };
 
-  return <div className="book-list">{books.length > 0 ? mapBooks() : ""}</div>;
+  return (
+    <div className="book-list">
+      <h1 className="book-list__title">Reading List</h1>
+      {books.length > 0 ? mapBooks() : ""}
+    </div>
+  );
 }

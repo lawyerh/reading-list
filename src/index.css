@@ -162,12 +162,19 @@ h6 {
   width: 100%;
   border: 5px solid black;
   padding: 2rem;
+  vertical-align: top;
+}
+
+.book-list__title {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
 }
 
 .book-show {
+  vertical-align: top;
   display: inline-block;
-  height: 10vh;
   width: 15%;
+  min-height: 10rem;
   background: lightgrey;
   padding: 1rem;
   position: relative;
@@ -198,6 +205,16 @@ h6 {
   right: 1rem;
   top: 0;
   background: transparent;
+}
+
+.book-show__change-title,
+.book-show__change-title:focus {
+  font-size: 1.6rem;
+  border: none;
+  background: transparent;
+  outline: none;
+  border-bottom: 2px solid black;
+  display: inline-block;
 }
 
 .icon {
