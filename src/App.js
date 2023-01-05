@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 // Imported components
 import BookCreate from "./components/BookCreate";
@@ -7,16 +8,21 @@ import BookList from "./components/BookList";
 function App() {
   const [books, setBooks] = useState([]);
 
-  // Backend server will typically generate unique id's
-  // Using this method to create a typically random number
-  const createRandomID = () => {
-    const newID = Math.floor(Math.random() * 99999);
-    return newID;
+  const URL = "http://localhost:3001/books";
+
+  const retrieveBooks = async () => {
+    const response = await axios.get(URL);
+
+    setBooks(response.data);
   };
 
   // Passed to BookCreate to add new entry to books state
-  const handleCreateBook = (bookTitle) => {
-    const updatedBooks = [...books, { id: createRandomID(), title: bookTitle }];
+  const handleCreateBook = async (bookTitle) => {
+    const response = await axios.post(URL, {
+      title: bookTitle,
+    });
+
+    const updatedBooks = [...books, response.data];
     setBooks(updatedBooks);
   };
 
@@ -36,6 +42,10 @@ function App() {
     console.log(updatedBooks);
     setBooks(updatedBooks);
   };
+
+  useEffect(() => {
+    retrieveBooks();
+  }, []);
 
   return (
     <div className="App">
