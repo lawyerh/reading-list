@@ -8,7 +8,7 @@ import BookList from "./components/BookList";
 function App() {
   const [books, setBooks] = useState([]);
 
-  const URL = "http://localhost:3001/books";
+  const URL = "http://localhost:3001/books/";
 
   const retrieveBooks = async () => {
     const response = await axios.get(URL);
@@ -27,24 +27,36 @@ function App() {
   };
 
   // Passed to BookShow to allow deletion of books from books state
-  const deleteBookByID = (id) => {
+  const deleteBookByID = async (id) => {
+    const targetURL = String(URL + id);
+
+    await axios.delete(targetURL);
+
     const updatedBooks = books.filter((book) => book.id !== id);
     setBooks(updatedBooks);
   };
 
   // Passed to BookShow to allow editing book titles
-  const editBookTitleByID = (id, newTitle) => {
+  const editBookTitleByID = async (id, newTitle) => {
+    const targetURL = String(URL + id);
+
+    const response = await axios.put(targetURL, {
+      title: newTitle,
+    });
+
     const updatedBooks = books.map((book) => {
-      if (book.id === id) return { id: id, title: newTitle };
+      if (book.id === id) return response.data;
       else return book;
     });
 
-    console.log(updatedBooks);
     setBooks(updatedBooks);
   };
 
+  // React command that can run once or a number of times on rerender. 
+  // Useful for an intial data retrieval
   useEffect(() => {
     retrieveBooks();
+    console.clear();
   }, []);
 
   return (

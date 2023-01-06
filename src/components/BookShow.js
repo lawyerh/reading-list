@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function BookShow({ book, deleteBook, updateBook }) {
   const [newTitle, setNewTitle] = useState(book.title);
-  const [editMode, setEditMode] = useState(true);
+  const [editMode, setEditMode] = useState(false);
 
   const handleDelete = () => {
     deleteBook(book.id);
