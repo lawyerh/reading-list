@@ -1,14 +1,17 @@
 import BookShow from "./BookShow";
+import { useContext } from "react";
+import BooksContext from "../context/books";
 
-export default function BookList({ books, deleteBook, updateBook }) {
+export default function BookList() {
+const { books } = useContext(BooksContext);
+
+
   const mapBooks = () => {
     const bookCards = books.map((book) => {
       return (
         <BookShow
           key={book.id}
           book={book}
-          deleteBook={deleteBook}
-          updateBook={updateBook}
         />
       );
     });
