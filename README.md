@@ -1,3 +1,11 @@
+# First major coursework project from React Udemy course. Learned about state in regards to forms, how and when to use context, how to create custom hooks, and integrated persistant data.
+
+Use **npm run start** and **npm run server** to initialize project.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
